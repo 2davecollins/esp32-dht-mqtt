@@ -1,7 +1,7 @@
 #ifndef CREDENTIALS_H
 #define CREDENTIALS_H
 
-#define WIFI_SSID "MyWiFiSSID"
-#define WIFI_PASSWORD "some_secret_password"
+#define WIFI_SSID "wifi ssid"
+#define WIFI_PASSWORD "secure password"
 
 #endif
