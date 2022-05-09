@@ -13,3 +13,11 @@ systemctl stop mosquitto.service
 systemctl start mosquitto.service
 
 ```
+
+## Connection is refused edit /etc/mosquitto/conf.d/mosquitto.conf add to the bottom of file.
+
+```
+allow_anonymous true
+listener 1883 0.0.0.0
+
+```
