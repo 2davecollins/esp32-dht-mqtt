@@ -21,3 +21,5 @@ allow_anonymous true
 listener 1883 0.0.0.0
 
 ```
+## node-red setup
+![Alt text](./images/Node-Red.png?raw=true "Title")

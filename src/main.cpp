@@ -18,7 +18,9 @@ extern "C" {
 // 
 //#define MQTT_HOST IPAddress(83, 212, 126, 187)
 // For a cloud MQTT broker, type the domain name
-#define MQTT_HOST "snf-57770.vm.okeanos-global.grnet.gr"
+//MQTT_HOST moved to credentials.h
+//#define MQTT_HOST "snf-57770.vm.okeanos-global.grnet.gr"
+
 #define MQTT_PORT 1883
 
 // Temperature MQTT Topics
