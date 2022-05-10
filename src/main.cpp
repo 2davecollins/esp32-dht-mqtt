@@ -9,8 +9,6 @@ extern "C" {
 }
 #include <AsyncMqttClient.h>
 
-
-
 #define LED 2
 
 // Raspberry Pi Mosquitto MQTT Broker
@@ -102,23 +100,6 @@ void onMqttSubscribe(uint16_t packetId, uint8_t qos) {
   
 }
 
-void callback(char* topic, byte* message, unsigned int length) {
-  Serial.print("Message arrived on topic: ");
-  Serial.print(topic);
-  Serial.print(". Message: ");
-  String messageTemp;
-  
-  for (int i = 0; i < length; i++) {
-    Serial.print((char)message[i]);
-    messageTemp += (char)message[i];
-  }
-  Serial.println();
-  if (String(topic) == "sensor/sensor1") {
-    Serial.print("Changing output to ");
-   
-  }
-}
-
 void onMqttUnsubscribe(uint16_t packetId) {
   Serial.println("Unsubscribe acknowledged.");
   Serial.print("  packetId: ");
@@ -162,10 +143,9 @@ void setup() {
 
   mqttClient.onConnect(onMqttConnect);
   mqttClient.onDisconnect(onMqttDisconnect);
-  
+
   //mqttClient.onSubscribe(onMqttSubscribe);
   //mqttClient.onUnsubscribe(onMqttUnsubscribe);
-
  
   mqttClient.onPublish(onMqttPublish);
   mqttClient.setServer(MQTT_HOST, MQTT_PORT);
@@ -196,9 +176,7 @@ void loop() {
     if (isnan(temp) || isnan(hum)) {
       Serial.println(F("Failed to read from DHT sensor!"));
       return;
-    }
-
-    
+    }    
     
     // Publish an MQTT message on topic esp32/dht/temperature
     uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, 1, true, String(temp).c_str());                            
